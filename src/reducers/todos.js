@@ -1,4 +1,4 @@
-import * as actions from '../actions/actions';
+import * as actions from '../actions/index';
 
 export default function todos(state = [], action) {
     switch(action.type) {
@@ -6,13 +6,14 @@ export default function todos(state = [], action) {
             return [
                 ...state,
                 {
+                    id: action.id,
                     title: action.title,
                     completed: false
                 }
             ]
         case actions.TOGGLE_TODO:
             return state.map((todo, index) => {
-                if(index === action.index) {
+                if(todo.id === action.id) {
                     return Object.assign({}, todo, {
                         completed: !todo.completed
                     })

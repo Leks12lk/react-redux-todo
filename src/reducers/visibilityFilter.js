@@ -1,4 +1,4 @@
-import * as actions from '../actions/actions';
+import * as actions from '../actions';
 
 export default function visibilityFilter(state = actions.VisibilityFilters.SHOW_ALL, action) {
     switch(action.type) {

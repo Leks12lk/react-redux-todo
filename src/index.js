@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import './index.css';
-import App from './App';
-import Home from './components/Home';
-import SubHome from './components/SubHome';
-import About from './components/About';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import {createStore} from 'redux';
-import todoApp from './reducers/reducer';
+import {Provider} from 'react-redux';
+import todoApp from './reducers/index';
 
 //import * as actions from './actions/actions';
 
@@ -43,8 +41,10 @@ ReactDOM.render(
     //         </Route> 
     //         <Route path="about" component={ About } />
     //     </Route>          
-    // </Router>, 
-    <App />,
+    // </Router>,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 registerServiceWorker();
